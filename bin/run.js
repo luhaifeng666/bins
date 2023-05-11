@@ -3,8 +3,8 @@
 /*
  * @Author: luhaifeng666 youzui@hotmail.com
  * @Date: 2023-04-28 11:26:50
- * @LastEditors: luhaifeng666
- * @LastEditTime: 2023-05-04 10:33:04
+ * @LastEditors: haifeng.lu
+ * @LastEditTime: 2023-05-11 19:58:06
  * @Description: 
  */
 const shell = require('shelljs')
@@ -13,13 +13,13 @@ const { version } = require('../package.json')
 const { Command } = require('commander')
 
 const program = new Command()
-program.version(version, '-v, --version')
 program
+  .version(version, '-v, --version')
   .option('-t, --type <type>', 'pnpm/npm/yarn')
 
 program.parse(process.argv)
 
-const { type = 'yarn' } = program.opts()
+const { type } = program.opts()
 const SEHLL_PRES = {
   yarn: 'yarn',
   npm: 'npm run',
@@ -40,7 +40,7 @@ scriptNames.length ? promptCreator([
     choices: scriptNames
   }
 ], answer => {
-  const command = `${SEHLL_PRES[type]} ${answer.name}`
-  console.log(`run command: ${command}`)
+  const command = `${!!type ? SEHLL_PRES[type] : 'nr'} ${answer.name}`
+  shell.echo(`run command: ${command}`)
   shell.exec(`${command}`)
 }) : console.error('No scripts!')
