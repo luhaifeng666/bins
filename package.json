@@ -9,12 +9,14 @@
   "bin": {
     "gitc": "bin/gc.js",
     "vs": "bin/vs.js",
-    "run": "bin/run.js"
+    "run": "bin/run.js",
+    "wsc": "bin/workspaceCompile.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chalk": "4.0.0",
     "commander": "^9.2.0",
     "inquirer": "^8.2.4",
     "inquirer-tree-prompt": "^1.1.2",
