@@ -28,8 +28,7 @@ const ACCOUNTS = {
 	},
 	tc: {
 		name: 'haifeng.lu',
-		email: 'haifeng.lu@ly.com',
-    password: 'lhf08113010xf!'
+		email: 'haifeng.lu@ly.com'
 	}
 }
 
